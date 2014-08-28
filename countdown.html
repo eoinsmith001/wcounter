@@ -1,0 +1,126 @@
+<head>
+  <title>Wedding Countdown</title>
+</head>
+
+<body>
+  <div id="wrap">
+  <div id="main" class="container clear-top">
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	  <span class="sr-only">Toggle Navigation</span>
+        </button>
+        <a class="navbar-brand" href="#">Our Wedding</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="jumbotron">
+    <div class="container">
+      <h1>{{> days}}</h1>
+      {{>hours}}
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <h1>What's happening in the run-up?</h1>
+    {{> week}}
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-md-4">
+	{{> hotels}}
+      </div>
+
+      <div class="col-md-4">
+	{{> churches}}
+      </div>
+
+      <div class="col-md-4">
+	{{> restaurants}}
+      </div>
+
+    </div>
+  </div>
+  </div>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p>es 2014</p>
+	</div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+<template name="days">
+  <h1>Days Remaining: {{days_remaining}}</h1>
+</template>
+
+<template name="hours">
+  <p>Let's get married in {{hours_remaining}} hours!</p>
+</template>
+
+<template name="hotels">
+  {{#each all}}
+    {{> venue_info}}
+  {{/each}}
+</template>
+
+<template name="churches">
+  {{#each all}}
+    {{> venue_info}}
+  {{/each}}
+</template>
+
+<template name="restaurants">
+  {{#each all}}
+    {{> venue_info}}
+  {{/each}}
+</template>
+
+<template name="week">
+  <div class="container notifications">
+  {{#each weekdays}}
+    {{> weekday}}
+  {{/each}}
+  </div>
+</template>
+
+<template name="weekday">
+  <div class="row">
+    <div class="span2 notification-subject">
+      {{datestring}}
+    </div>
+    <div class="span10 note-content">
+      {{task}}
+    </div>
+  </div>
+</template>
+
+<template name="venue_info">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading"><h2>{{question}}</h2></div>
+        <div class="panel-body">
+          <a href="{{url}}"><h4>{{name}}</h4></a>
+	  <iframe
+	    width="100%"
+	    height="300"
+	    frameborder="0" style="border:0"
+	    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBMQ8_n_01T2PYzFYq2B2_n4wiTsG0K_VU&q={{maps_search}}">
+          </iframe>
+        </div>
+        <div class="panel-footer">
+          <p>{{notes}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

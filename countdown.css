@@ -1,0 +1,112 @@
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 200;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 50px 0;
+    padding: 0;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+html, body {
+  height: 100%;
+}
+
+#wrap {
+  min-height: 100%;
+}
+
+#main {
+  overflow:auto;
+  padding-bottom:150px; /* this needs to be bigger than footer height*/
+}
+
+.footer {
+  position: relative;
+  margin-top: -50px; /* negative value of footer height */
+  height: 50px;
+  clear:both;
+  padding-top:20px;
+  background-color: #000000;
+  color: #fff;
+  text-align: right;
+} 
+
+div {
+  display: block;
+}
+
+#outer {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.details, .none {
+    font-weight: bold;
+    font-size: 2em;
+    border-style: dashed none none none;
+    border-color: #ccc;
+    border-width: 4px;
+    margin: 50px 10px;
+    padding: 10px 0px;
+}
+
+.none {
+    color: #777;
+}
+
+.inc {
+  cursor: pointer;
+}
+
+.container {
+  margin-left: 0;
+  width: 100%;
+}
+
+.container-fluid {
+  padding-bottom: 40px;
+}
+
+.notifications {
+  background-color: #3f3f3f;
+  margin-top: 50px;
+}
+
+.notification-subject {
+  background-color: #428bca;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.note-content {
+  color: #fff;
+  padding: 10px 0;
+  width: 100%;
+  display: inline-block;
+}
+
+.notifications {
+  background-color: #3f3f3f;
+  margin-top: 50px;
+}
+
+.span2 {
+  width: 140px;
+}
+
+.span10 {
+  width: 780px;
+}
+
+[class*=span] {
+  float: left;
+  min-height: 1px;
+  margin-left: 20px;
+}
