@@ -51,7 +51,11 @@ if (Meteor.isClient) {
   Template.restaurants.all = function () {
     return Restaurants.find({}, {sort: {name: 1}});
   };
-
+  Template.venue_info.quick_time = function () {
+    if (!this.time)
+      return "";
+    return moment(this.time).format('hA');
+  };
 }
 
 // On server startup, create some players if the database is empty.
@@ -60,11 +64,11 @@ if (Meteor.isServer) {
     if (Weekdays.find().count() === 0) {
       for (var i = 0; i < 7; i++) {
         var tasks = {
-          "22" : "Marriage+1; 2 family christenings planned for lunchtime in Kilkenny",
+          "22" : "Marriage+1; attending christening planned for lunchtime in Kilkenny",
           "21" : "The Big Day; wedding planned for 3pm, dinner at 5pm",
-          "20" : "Rehearsal planned for evening/night time",
+          "20" : "Rehearsal tentatively planned for evening/night time",
           "19" : "Day at home",
-          "18" : "Return from Waterford to Kilkenny to present paperwork to the Registry office.  Ideally return to Offaly that evening",
+          "18" : "Return from Waterford to Kilkenny to present paperwork to the Registry office",
           "17" : "Attending friend's wedding, stay in Waterford that night",
           "16" : "Stay in Waterford ahead of wedding of a friend",
         };
@@ -79,17 +83,19 @@ if (Meteor.isServer) {
                      map_url: "https://goo.gl/maps/gIi9D",
                      maps_search: "Butler+House,Upper+Patricks+Street,Kilkenny,Ireland",
                      notes: "Historic Georgian Guesthouse, first preference right now",
-                     question: "Where will we stay?"
+                     question: "Where will we stay?",
+                     time : null
                     });
     }
 
     if (Churches.find().count() === 0) {
       Churches.insert({name: "St. Canice's Church", 
                        url: "http://www.stcanicesparish.ie/",
-                       map_url: "http://www.google.ie",
-                       maps_search: "St+Canice's+Church,St.+Thomas+Square,Kilkenny,Ireland",
+                       map_url: "https://goo.gl/maps/pGn43",
+                       maps_search: "Canice's+Church+19+Dean+Street,+Kilkenny,+Ireland",
                        notes: "This is the Catholic Church, St. Canice's Cathedral (nearby) is Protestant",
-                       question: "Where will we pray?"
+                       question: "Where will we pray?",
+                       time : new Date(2014, 10, 21, 15, 0, 0, 0)
                       });
     }
 
@@ -99,7 +105,8 @@ if (Meteor.isServer) {
                           map_url: "https://goo.gl/maps/sQA5W",
                           maps_search: "Ristorante+Rinuccini,Kilkenny,Ireland",
                           notes: "Italian-style food",
-                          question: "Where will we eat?"
+                          question: "Where will we eat?",
+                          time : new Date(2014, 10, 21, 17, 0, 0, 0)
                          });
     }
 
