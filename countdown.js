@@ -95,7 +95,7 @@ if (Meteor.isServer) {
                        maps_search: "Canice's+Church+19+Dean+Street,+Kilkenny,+Ireland",
                        notes: "This is the Catholic Church, St. Canice's Cathedral (nearby) is Protestant",
                        question: "Where will we pray?",
-                       time : new Date(2014, 10, 21, 15, 0, 0, 0)
+                       time : new Date(Date.UTC(2014, 10, 21, 15-10, 0, 0, 0))
                       });
     }
 
@@ -106,9 +106,8 @@ if (Meteor.isServer) {
                           maps_search: "Ristorante+Rinuccini,Kilkenny,Ireland",
                           notes: "Italian-style food",
                           question: "Where will we eat?",
-                          time : new Date(2014, 10, 21, 17, 0, 0, 0)
+                          time : new Date(Date.UTC(2014, 10, 21, 17-10, 0, 0, 0))
                          });
     }
-
   });
 }
